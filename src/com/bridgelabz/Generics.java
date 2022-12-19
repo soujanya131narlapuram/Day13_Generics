@@ -1,28 +1,39 @@
 package com.bridgelabz;
 
-public class Generics {
+public class  Generics <T extends Comparable> {
+    T vble1;
+    T vble2;
+    T vble3;
 
-    static <P extends Comparable> void max_variables( P str1, P str2, P str3){
+    Generics(T var1, T var2, T var3){   // parameterized constructor is used to initialize instance variable of objects
+        this.vble1 = var1;
+        this.vble2 = var2;
+        this.vble3 = var3;
+    }
 
-        if(str1.compareTo(str2) > 0){
-            if(str1.compareTo(str3) > 0){
-                System.out.println( str1 + " is Maximum of three given inputs ");
+    void maximumOfVariables(){
+        if(this.vble1.compareTo(this.vble2) > 0){
+            if(this.vble1.compareTo(this.vble3) > 0){
+                System.out.println( this.vble1 + " is Maximum of three variables");
             }else {
-                System.out.println( str3 + " is Maximum of three given inputs  ");
+                System.out.println( this.vble3 + " is Maximum of three variables ");
             }
         }else{
-            if(str2.compareTo(str3) > 0){
-                System.out.println( str2 + " is Maximum of three given inputs  ");
+            if(this.vble2.compareTo(this.vble3) > 0){
+                System.out.println( this.vble2 + " is Maximum of three variables ");
             }else{
-                System.out.println( str3 + " is Maximum of three given inputs  ");
+                System.out.println( this.vble3 + " is Maximum of three variables ");
             }
         }
     }
-
-
     public static void main(String[] args) {
-        max_variables(10,5000,99);
-        max_variables(7.1f,119.8f,3.0f);
-        max_variables("Orange", "WaterMelon", "Banana");
+        Generics <Integer> obj1 = new Generics(60, 1, 45);
+        obj1.maximumOfVariables();
+
+        Generics <String> obj2 = new Generics("Orange", "Banana","WaterMelon");
+        obj2.maximumOfVariables();
+
+        Generics <Float> obj3 = new Generics(5.3f, 7.1f, 10.7f);
+        obj3.maximumOfVariables();
     }
 }
